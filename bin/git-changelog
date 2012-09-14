@@ -7,9 +7,9 @@ case "$1" in
   -l|--list)
     version=$(git describe --tags --abbrev=0 $(git rev-list --tags --max-count=1))
     if test -z "$version"; then
-      git log --pretty="format:  * %s"
+      git log --pretty="format:  * %s [%cn]"
     else
-      git log --pretty="format:  * %s" $version..
+      git log --pretty="format:  * %s [%cn]" $version..
     fi
     ;;
   *)
